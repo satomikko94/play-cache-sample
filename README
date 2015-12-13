@@ -1,4 +1,4 @@
 This is your new Play application
 =================================
 
-This file will be packaged with your application, when using `activator dist`.
+It's sample program to set cache value and get it on scala.html. It uses play framework.
