@@ -12,16 +12,19 @@ public class Application extends Controller {
 
     static Form<Task> taskFrom = Form.form(Task.class);
 
-    public Result tasks() {
+    public Result index() {
     	return ok(setCache.render(taskFrom));
     }
     
-    public Result setCacheData() {
+    public Result setTask() {
+    	// get values from form
         Form<Task> filledForm = taskFrom.bindFromRequest();
         Task task = filledForm.get();
-
+        
+        // set Task model to cache
         Cache.set("task", task, 60 * 1);
-        return ok(setCache.render(filledForm));
+        
+        return redirect(routes.Application.index());
     }
 
 }
