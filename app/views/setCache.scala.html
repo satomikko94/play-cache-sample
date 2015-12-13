@@ -1,0 +1,21 @@
+@import model.Task
+@import helper._
+
+@(taskForm: Form[Task])
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Play framework - Cache sample</title>
+    </head>
+    <body>
+        @form(routes.Application.setCacheData()) {
+        	@inputText(taskForm("id"))
+        	@inputText(taskForm("taskName"))
+        	<input type="submit">
+        }
+        
+        @showCache()
+    </body>
+</html>

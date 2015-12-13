@@ -1,0 +1,14 @@
+@import model.Task
+@import play.cache.Cache
+
+@(task : Task = Cache.get("task").asInstanceOf[Task])
+@if(task == null) {
+	<h1>Cache has no data!</h1>
+} else {
+	<h1>Task data from Cache</h1>
+	id : @task.id<br>
+	name : @task.taskName<br>
+	<br>
+	Cache will be expired after 1 minutes.<br>
+	<a href="@routes.Application.tasks()">Back to Top</a>
+}
